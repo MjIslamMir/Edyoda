@@ -30,9 +30,8 @@ ol li {
 
 }
 
-/* .matrix {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            flex: 1;
-        } */
+div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
