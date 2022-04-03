@@ -25,9 +25,8 @@
     color: #080808;
 }
 
-ol li {
-    text-decoration: none;
-
+li a {
+    text-decoration: none !important;
 }
 
 div img {
