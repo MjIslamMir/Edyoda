@@ -14,12 +14,13 @@ class App extends React.Component{
   greeting=(name)=>{
     console.log(`${name}, Welcomes you to this React Course`)
   }
-  incrememnt=()=>{
+  incrememnt=()=>{//set state is Async 
     this.setState((prevState)=>{//one way to update the state has to be a arraw functon
+      console.log(this.state)
       return {
         val:prevState.val+1
       }
-    })
+    },()=>console.log(this.state))//to use the updated state rather than using the previous state of state because of async nature of setState() function 
   }
   decrement=()=>{
     this.setState({ //another way to update the state
