@@ -1,0 +1,14 @@
+body{
+    background-color: antiquewhite;
+    text-align: center;
+    border: 15px solid rgb(236, 107, 9);
+    border-radius: 10px;
+}
+button{
+    background-color: black;
+    height: 40px;
+    color: aliceblue;
+    margin: 10px;
+    border-radius:5px ;
+    font-size: 20px;
+}
