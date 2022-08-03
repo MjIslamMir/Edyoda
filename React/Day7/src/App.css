@@ -1,0 +1,22 @@
+body{
+  background-color: antiquewhite;
+  text-align: center;
+  border: 5px solid rgb(236, 107, 9);
+  border-radius: 10px;
+}
+.Navigation{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  margin:20px;
+  background-color: rgb(241, 103, 103);
+  border-radius: 10px;
+}
+.Navigation a{
+  font-size: 20px;
+  color:rgb(16, 17, 17);
+  text-decoration: none;
+  font-weight: bold;
+}
