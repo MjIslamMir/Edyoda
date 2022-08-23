@@ -1,1 +1,97 @@
 Code
+-- SETTING UP TABLES
+
+-- CREATE TABLE SALESPERSON
+                          CREATE TABLE SalesPeople (
+                          Snum INT PRIMARY KEY,
+                          Sname VARCHAR(30) UNIQUE,
+                          City VARCHAR(30),
+                          Comm INT
+                          );
+
+-- INSERT DATA INTO SALESPERSON TABLE
+                          INSERT INTO SalesPeople (Snum ,Sname ,City ,Comm) 
+                          VALUES 
+                          (1001, 'Peel','London',12),
+                          (1002,'Serres','Sanjos',13),
+                          (1004,'Motiika','London',11),
+                          (1007,'Rifkin','Barcelona',15),
+                          (1003,'Axelrod','Newyork',10);
+
+SELECT * FROM SalesPeople;
+
+                          # Snum, Sname, City, Comm
+                          '1001', 'Peel', 'London', '12'
+                          '1002', 'Serres', 'Sanjos', '13'
+                          '1003', 'Axelrod', 'Newyork', '10'
+                          '1004', 'Motiika', 'London', '11'
+                          '1007', 'Rifkin', 'Barcelona', '15'
+
+-- CREATE TABLE CUSTOMERS
+                          CREATE TABLE Customers (
+                          Cnum INT PRIMARY KEY,
+                          Cname VARCHAR(30),
+                          City VARCHAR(30) NOT NULL,
+                          Snum INT,
+                          FOREIGN KEY(Snum) REFERENCES SalesPeople(Snum)
+                          );
+-- INSERT DATA INTO CUSTOMERS TABLE
+                          INSERT INTO Customers (Cnum,Cname,City,Snum) VALUES
+                          (2001,  'Hoffman','London',1001),
+                          (2002, 'Giovanni', 'Rome',1003),
+                          (2003,  'Liu', 'Sanjose',1002),
+                          (2004,  'Grass', 'Berlin',1002),
+                          (2006, 'Clemens', 'London',1001),
+                          (2008, 'Cisneros', 'Sanjose',1007),
+                          (2007, 'Pereira', 'Rome',1004);
+
+SELECT * FROM Customers;
+                          # Cnum	Cname	City	Snum
+                          2001	Hoffman	London	1001
+                          2002	Giovanni	Rome	1003
+                          2003	Liu	Sanjose	1002
+                          2004	Grass	Berlin	1002
+                          2006	Clemens	London	1001
+                          2007	Pereira	Rome	1004
+                          2008	Cisneros	Sanjose	1007
+
+-- CREATE TABLE Orders
+
+                          CREATE TABLE Orders (
+                          Onum INT PRIMARY KEY,
+                          Amt DOUBLE,
+                          Odate VARCHAR(10),
+                          Cnum INT,
+                          Snum INT,
+                          FOREIGN KEY (Cnum) REFERENCES Customers(Cnum),
+                          FOREIGN KEY (Snum) REFERENCES  SalesPeople(Snum)
+                          );
+
+-- INSERT DATA INTO CUSTOMERS TABLE
+
+                          INSERT INTO Orders(Onum, Amt,Odate,Cnum,Snum) 
+                          VALUES
+                          (3001, 18.69, '3-10-1990',2008,1007),
+                          (3003, 767.19, '3-10-1990', 2001, 1001),
+                          (3002, 1900.10, '3-10-1990',2007, 1004),
+                          (3005,  5160.45,'3-10-1990', 2003, 1002),
+                          (3006,  1098.16,'3-10-1990', 2008, 1007),
+                          (3009, 1713.23,'4-10-1990', 2002, 1003),
+                          (3007,  75.75,'4-10-1990', 2004, 1002),
+                          (3008,  4273.00,'5-10-1990' ,2006, 1001),
+                          (3010,  1309.95, '6-10-1990', 2004, 1002),
+                          (3011,  9891.88,'6-10-1990',2006, 1001);
+
+SELECT * FROM Orders;
+
+                          # Onum	Amt	Odate	Cnum	Snum
+                          3001	18.69	3-10-1990	2008	1007
+                          3002	1900.1	3-10-1990	2007	1004
+                          3003	767.19	3-10-1990	2001	1001
+                          3005	5160.45	3-10-1990	2003	1002
+                          3006	1098.16	3-10-1990	2008	1007
+                          3007	75.75	4-10-1990	2004	1002
+                          3008	4273	5-10-1990	2006	1001
+                          3009	1713.23	4-10-1990	2002	1003
+                          3010	1309.95	6-10-1990	2004	1002
+                          3011	9891.88	6-10-1990	2006	1001
