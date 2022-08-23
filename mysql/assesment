@@ -55,6 +55,7 @@ SELECT * FROM Customers;
                           2007	Pereira	Rome	1004
                           2008	Cisneros	Sanjose	1007
 
+
 -- CREATE TABLE Orders
 
                           CREATE TABLE Orders (
@@ -81,6 +82,7 @@ SELECT * FROM Customers;
                           (3008,  4273.00,'5-10-1990' ,2006, 1001),
                           (3010,  1309.95, '6-10-1990', 2004, 1002),
                           (3011,  9891.88,'6-10-1990',2006, 1001);
+                          
 
 SELECT * FROM Orders;
 
@@ -95,3 +97,14 @@ SELECT * FROM Orders;
                           3009	1713.23	4-10-1990	2002	1003
                           3010	1309.95	6-10-1990	2004	1002
                           3011	9891.88	6-10-1990	2006	1001
+
+
+ --SOLUTION 1: Count the number of Salesperson whose name begin with ‘a’/’A’
+            
+            SELECT count(*) 
+            FROM 
+            SalesPeople 
+            where 
+            Sname like '[aA]%';
+            
+  -- Solution 2:Display all the Salesperson whose all orders worth is more than Rs. 2000.
