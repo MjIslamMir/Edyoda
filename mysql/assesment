@@ -99,12 +99,71 @@ SELECT * FROM Orders;
                           3011	9891.88	6-10-1990	2006	1001
 
 
- --SOLUTION 1: Count the number of Salesperson whose name begin with ‘a’/’A’
+ -- Q1: Count the number of Salesperson whose name begin with ‘a’/’A’
             
             SELECT count(*) 
             FROM 
             SalesPeople 
             where 
             Sname like '[aA]%';
+-- OUTPUT: 
+2
             
-  -- Solution 2:Display all the Salesperson whose all orders worth is more than Rs. 2000.
+  -- Q2:Display all the Salesperson whose all orders worth is more than Rs. 2000.
+            
+            Select Sname, SUM(Amt) as totalAmount from SalesPeople
+            inner join
+            Orders
+            on SalesPeople.Snum= Orders.Snum
+            group by Sname
+            having sum(Amt)>2000;
+            
+-- OUTPUT: 
+            # Sname, totalAmount
+            'Peel', '14932.07'
+            'Serres', '6546.15'
+
+-- Q3:Count the number of Salesperson belonging to Newyork.
+      
+      select Count(city) as Number_Of_SalesPeople_from_NewYork 
+      from 
+      SalesPeople
+      where 
+      city='Newyork';
+
+-- OUTPUT:    
+            # Number_Of_SalesPeople_from_NewYork
+            '1'
+-- Q4: Display the number of Salespeople belonging to London and belonging to Paris.
+
+      select city, Count(city) as Number_Of_SalesPeople_from_NewYork_and_paris 
+      from 
+      SalesPeople
+      where 
+      city IN ('Newyork','Paris');
+
+-- OUTPUT: 
+
+      # city, Number_Of_SalesPeople_from_NewYork_and_paris
+      'Newyork', '1'
+
+ -- Q5: Display the number of orders taken by each Salesperson and their date of orders.
+ 
+        select Sname,count(*) as Number_of_Orders, Odate 
+        from 
+        SalesPeople
+        inner join
+        Orders
+        ON
+        SalesPeople.Snum= Orders.Snum
+        group by Sname;
+        
+-- OUTPUT: 
+
+# Sname, Number_of_Orders, Odate
+'Axelrod', '1', '4-10-1990'
+'Motiika', '1', '3-10-1990'
+'Peel', '3', '3-10-1990'
+'Rifkin', '2', '3-10-1990'
+'Serres', '3', '3-10-1990'
+
