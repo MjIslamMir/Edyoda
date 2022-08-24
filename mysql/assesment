@@ -160,10 +160,10 @@ SELECT * FROM Orders;
         
 -- OUTPUT: 
 
-# Sname, Number_of_Orders, Odate
-'Axelrod', '1', '4-10-1990'
-'Motiika', '1', '3-10-1990'
-'Peel', '3', '3-10-1990'
-'Rifkin', '2', '3-10-1990'
-'Serres', '3', '3-10-1990'
+        # Sname, Number_of_Orders, Odate
+        'Axelrod', '1', '4-10-1990'
+        'Motiika', '1', '3-10-1990'
+        'Peel', '3', '3-10-1990'
+        'Rifkin', '2', '3-10-1990'
+        'Serres', '3', '3-10-1990'
 
